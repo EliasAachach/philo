@@ -3,8 +3,8 @@
 ## SRCS ##
 
 SOURCES		+=               		\
-		srcs/philo.c            	\
 		srcs/checkers.c         	\
+		srcs/philo.c            	\
 
 
 ## SRCS/UTILS ##

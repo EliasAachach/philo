@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eliasaachach <eliasaachach@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:15:07 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/22 15:25:33 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/22 18:49:00 by eliasaachac      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd(2, "memset ok\n");
 		init_data(&data, argc, argv);
 		ft_putstr_fd(2, "init ok\n");
+		birth(&data);
 	}
 	else
 		return (1);

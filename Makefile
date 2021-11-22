@@ -29,9 +29,9 @@ OBJECTS				:= $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.$(OBJEX
 OBJECTS_BONUS		:= $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES_BONUS:.$(SRCEXT)=.$(OBJEXT)))
 
 #Flags, Libraries and Includes
-cflags.release		:= -Wall -Werror -Wextra -pthread
-cflags.valgrind		:= -Wall -Werror -Wextra -DDEBUG -pthread -ggdb 
-cflags.debug		:= -Wall -Werror -Wextra -DDEBUG -pthread -ggdb -fsanitize=address -fno-omit-frame-pointer
+cflags.release		:= -Wall -Werror -Wextra
+cflags.valgrind		:= -Wall -Werror -Wextra -DDEBUG -ggdb
+cflags.debug		:= -Wall -Werror -Wextra -DDEBUG -ggdb -fsanitize=address -fno-omit-frame-pointer
 CFLAGS				:= $(cflags.$(BUILD))
 CPPFLAGS			:= $(cflags.$(BUILD))
 
@@ -87,7 +87,7 @@ clean:
 
 # Full Clean, Objects and Binaries
 fclean: clean
-	@$(RM) -rf $(TARGETDIR)
+	@$(RM) -rf $(TARGET)
 
 
 # Pull in dependency info for *existing* .o files

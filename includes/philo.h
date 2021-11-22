@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:16:46 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/22 14:47:09 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/22 19:24:37 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ typedef struct s_philo	t_philo;
 struct s_philo
 {
 	size_t			name;
-	size_t			nbr_eat;
+	ssize_t			nbr_eat;
 	time_t			last_eat;
-	bool			hungry;
+	bool			filled;
 	t_data			*data;
 	pthread_t		thread;
 	pthread_mutex_t	write;	
@@ -36,13 +36,15 @@ struct s_philo
 
 struct s_data
 {
-	size_t	nbr_philo;
-	time_t	die_time;
-	time_t	eat_time;
-	time_t	sleep_time;
-	size_t	nbr_eat;
-	bool	alive;
-	t_philo	*philo;
+	size_t			nbr_philo;
+	time_t			die_time;
+	time_t			eat_time;
+	time_t			sleep_time;
+	ssize_t			nbr_eat;
+	bool			dead;
+	t_philo			*philo;
+	pthread_mutex_t	*fork;
+	pthread_mutex_t	aff;
 };
 
 int		ft_strlen(char *str);

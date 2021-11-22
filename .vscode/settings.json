@@ -1,0 +1,8 @@
+{
+    "editor.rulers": [80]
+    // To change the color of the ruler, uncomment this section
+    // and change the color code.
+    // "workbench.colorCustomizations": {
+    //     "editorRuler.foreground": "#7cff40"
+    // }
+}
