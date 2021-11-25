@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 11:25:43 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/25 11:09:37 by elaachac         ###   ########.fr       */
+/*   Created: 2021/11/25 15:53:52 by elaachac          #+#    #+#             */
+/*   Updated: 2021/11/25 16:59:30 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	ft_isdigit(char *str)
+void	*routine(void *philo)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (false);
-		i++;
-	}
-	return (true);
+	(void)philo;
+	return ((void *)1);
 }
 
-int	ft_strlen(char *str)
+void	*lonely_routine(void *philo)
 {
-	int	i;
+	t_philo	*socrate;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr_fd(int fd, char *str)
-{
-	write (fd, str, ft_strlen(str));
+	socrate = (t_philo *)philo;
+	state_mng(*socrate, FORK);
+	state_mng(*socrate, SLEEP);
+	//DORMIR(jusqu'a socrate->data->die_time)
+	state_mng(*socrate, DIE);
+	//MOURIR
+	return (NULL);
 }

@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 11:25:43 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/25 11:09:37 by elaachac         ###   ########.fr       */
+/*   Created: 2021/11/25 17:05:36 by elaachac          #+#    #+#             */
+/*   Updated: 2021/11/25 17:16:13 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	ft_isdigit(char *str)
+time_t	instant_time(void)
 {
-	int	i;
+	struct timeval	tv;
+	time_t			time;
 
-	i = 0;
-	while (str[i])
+	gettimeofday(&tv, NULL);
+	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	return (time);
+}
+
+time_t	get_time(void)
+{
+	static time_t	start_time = 0;
+
+	if (start_time == 0)
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (false);
-		i++;
+		start_time = instant_time();
+		return (0);
 	}
-	return (true);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr_fd(int fd, char *str)
-{
-	write (fd, str, ft_strlen(str));
+	return (instant_time() - start_time);
 }
