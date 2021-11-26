@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:54:35 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/25 17:23:39 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:38:11 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	birth(t_data *data)
 	pthread_mutex_init(&(data->read), NULL);
 	if (data->nbr_philo == 1)
 	{
-		//ONLY ONE PHILO MANAGEMENT
 		pthread_create(&data->philo[i].thread, NULL, &lonely_routine,
 			(void *)(&data->philo[i]));
 	}
@@ -57,5 +56,8 @@ void	birth(t_data *data)
 				(void *)(&data->philo[i]));
 			i++;
 		}
+		i = 0;
 	}
+	while (i < data->nbr_philo)
+		pthread_join(data->philo[i++].thread, NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:48:00 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/25 17:25:05 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:22:12 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,32 @@ void	state_mng(t_philo philo, t_state state)
 {
 	if (philo.data->dead == false && state == FORK)
 	{
-		printf("At %ld : Philosopher %zu has taken a fork.\n", get_time(), \
+		printf("%ld %zu has taken a fork.\n", get_time(), \
 				philo.name);
 		//prend une fourchette
 	}
 	else if (philo.data->dead == false && state == EAT)
 	{
+		printf("%ld %zu is eating.\n", get_time(), \
+				philo.name);
 		//mange
 	}
 	else if (philo.data->dead == false && state == SLEEP)
 	{
+		printf("%ld %zu is sleeping.\n", get_time(), \
+				philo.name);
 		//dors
 	}
 	else if (philo.data->dead == false && state == THINK)
 	{
+		printf("%ld %zu is thinking.\n", get_time(), \
+				philo.name);
 		//pense
 	}
 	else if (philo.data->dead == false && state == DIE)
 	{
+		printf("%ld %zu died.\n", get_time(), \
+				philo.name);
 		//meurt
 	}
 	else if (philo.data->dead == false && state == ATE_ENOUGH)

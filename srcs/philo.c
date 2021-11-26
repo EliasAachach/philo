@@ -6,11 +6,21 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:15:07 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/25 16:15:34 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:35:42 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	free_struct(t_data **data)
+{
+	if ((*data)->philo)
+		free((*data)->philo);
+	if ((*data)->fork)
+		free((*data)->fork);
+	if (*data)
+		free(*data);
+}
 
 void	init_data(t_data **data, int argc, char **argv)
 {
@@ -34,6 +44,7 @@ int	main(int argc, char **argv)
 		memset(data, '\0', sizeof(t_data));
 		init_data(&data, argc, argv);
 		birth(data);
+		free_struct(&data);
 	}
 	else
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 15:53:52 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/25 16:59:30 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:52:46 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	*routine(void *philo)
 {
-	(void)philo;
-	return ((void *)1);
+	t_philo	*socrate;
+
+	socrate = (t_philo *)philo;
+	// tant que pas mort -> manger/penser/dormir
+	return (NULL);
 }
 
 void	*lonely_routine(void *philo)
