@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   timelord.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:05:36 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/26 12:25:45 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:58:51 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	passtime(time_t time_to_pass)
+{
+	time_t	start;
+
+	start = get_time();
+	while (get_time() - start < time_to_pass)
+		usleep(3);
+}
 
 time_t	instant_time(void)
 {

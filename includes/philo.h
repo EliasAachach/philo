@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:16:46 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/25 17:17:33 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/26 16:01:37 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@
 # include <sys/time.h>
 # include <pthread.h>
 # include <stdbool.h>
-#include <stdio.h>
+# include <stdio.h>
+# include <signal.h>
 
 typedef enum e_state	t_state;
 typedef struct s_data	t_data;
@@ -79,6 +80,7 @@ void	*lonely_routine(void *philo);
 bool	check_args(int argc, char **argv);
 bool	ft_isdigit(char *str);
 void	state_mng(t_philo philo, t_state state);
+void	passtime(time_t time_to_pass);
 time_t	get_time(void);
 time_t	instant_time(void);
 
