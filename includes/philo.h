@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:16:46 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/26 16:01:37 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/28 21:04:01 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ bool	check_args(int argc, char **argv);
 bool	ft_isdigit(char *str);
 void	state_mng(t_philo philo, t_state state);
 void	passtime(time_t time_to_pass);
+void	thanathos(t_data *data);
+void	free_struct(t_data **data);
 time_t	get_time(void);
 time_t	instant_time(void);
 

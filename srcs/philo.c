@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:15:07 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/26 12:35:42 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/28 21:09:52 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ int	main(int argc, char **argv)
 		memset(data, '\0', sizeof(t_data));
 		init_data(&data, argc, argv);
 		birth(data);
+		// if (data->nbr_philo != 1)
+		// 	ft();//multiple philo management
+		// else
+		if (data->nbr_philo == 1)
+			thanathos(data); //<- fct pour tuer le philo
 		free_struct(&data);
 	}
 	else

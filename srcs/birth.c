@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:54:35 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/26 12:38:11 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/28 20:47:47 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,12 @@ void	birth(t_data *data)
 	{
 		while (i < data->nbr_philo)
 		{
-			//MULTIPLE PHILOS MANAGEMENT
 			pthread_create(&data->philo[i].thread, NULL, &routine,
 				(void *)(&data->philo[i]));
 			i++;
 		}
-		i = 0;
+		// i = 0;//a enlever en meem temps que le while en bas
 	}
-	while (i < data->nbr_philo)
-		pthread_join(data->philo[i++].thread, NULL);
+	// while (i < data->nbr_philo)
+	// 	pthread_join(data->philo[i++].thread, NULL);//dans ft pour tuer
 }

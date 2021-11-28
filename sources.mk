@@ -3,11 +3,12 @@
 ## SRCS ##
 
 SOURCES		+=                  		\
-		srcs/routine.c             	\
-		srcs/state.c               	\
-		srcs/philo.c               	\
 		srcs/checkers.c            	\
+		srcs/state.c               	\
 		srcs/birth.c               	\
+		srcs/philo.c               	\
+		srcs/charon.c              	\
+		srcs/routine.c             	\
 
 
 ## SRCS/UTILS ##
