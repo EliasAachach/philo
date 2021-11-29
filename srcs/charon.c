@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 20:44:57 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/28 21:06:52 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/29 15:32:51 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,52 @@ void	thanathos(t_data *data)
 		i++;
 	}
 	pthread_mutex_destroy(&(data->read));
+	free_struct(&data);
+}
+
+bool	check_eat(t_data	*data)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < data->nbr_philo)
+	{
+		pthread_mutex_lock(&(data->philo[i].write));
+		if (data->philo[i].nbr_eat < data->nbr_eat)
+		{
+			pthread_mutex_unlock(&(data->philo[i].write));
+			return (false);
+		}
+		pthread_mutex_unlock(&(data->philo[i].write));
+		i++;
+	}
+	return (true);
+}
+
+void	charon(t_data	*data)
+{
+	size_t	i;
+	time_t	last_eat;
+
+	i = 0;
+	while (i < data->nbr_philo && data->nbr_philo != 1)
+	{
+		pthread_mutex_lock(&(data->philo[i].write));
+		last_eat = data->philo[i].last_eat;
+		pthread_mutex_unlock(&(data->philo[i].write));
+		if ((get_time() - last_eat) > data->die_time)
+		{
+			state_display(data->philo[i], DIE);
+			thanathos(data);
+		}
+		if (++i == data->nbr_philo)
+		{
+			i = 0;
+			if (data->nbr_eat != -1 && check_eat(data) == true)
+			{
+				state_display(data->philo[i], ATE_ENOUGH);
+				thanathos(data);
+			}
+		}
+	}
 }

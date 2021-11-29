@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:54:35 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/28 20:47:47 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/29 13:41:28 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,5 @@ void	birth(t_data *data)
 				(void *)(&data->philo[i]));
 			i++;
 		}
-		// i = 0;//a enlever en meem temps que le while en bas
 	}
-	// while (i < data->nbr_philo)
-	// 	pthread_join(data->philo[i++].thread, NULL);//dans ft pour tuer
 }

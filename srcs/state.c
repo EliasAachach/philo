@@ -6,46 +6,43 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:48:00 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/26 16:05:58 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/29 13:38:53 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	state_mng(t_philo philo, t_state state)
+void	state_display(t_philo philo, t_state state)
 {
 	if (philo.data->dead == false && state == FORK)
 	{
 		printf("%ld %zu has taken a fork\n", get_time(), \
 				philo.name);
-		//prend une fourchette
 	}
 	else if (philo.data->dead == false && state == EAT)
 	{
 		printf("%ld %zu is eating\n", get_time(), \
 				philo.name);
-		//mange
 	}
 	else if (philo.data->dead == false && state == SLEEP)
 	{
 		printf("%ld %zu is sleeping\n", get_time(), \
 				philo.name);
-		//dors
 	}
 	else if (philo.data->dead == false && state == THINK)
 	{
 		printf("%ld %zu is thinking\n", get_time(), \
 				philo.name);
-		//pense
 	}
 	else if (philo.data->dead == false && state == DIE)
 	{
+		philo.data->dead = true;
 		printf("%ld %zu died\n", get_time(), \
 				philo.name);
-		//meurt
 	}
 	else if (philo.data->dead == false && state == ATE_ENOUGH)
 	{
-		//assez manger (nbr_eat atteint)
+		philo.data->dead = true;
+		printf("All philosophers ate enough.");
 	}
 }
