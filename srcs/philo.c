@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:15:07 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/29 15:37:19 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/30 14:13:17 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,20 @@
 void	free_struct(t_data **data)
 {
 	if ((*data)->philo)
+	{
 		free((*data)->philo);
+		(*data)->philo = NULL;
+	}
 	if ((*data)->fork)
+	{
 		free((*data)->fork);
+		(*data)->fork = NULL;
+	}
 	if (*data)
+	{
 		free(*data);
+		*data = NULL;
+	}
 }
 
 void	init_data(t_data **data, int argc, char **argv)

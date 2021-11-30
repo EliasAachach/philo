@@ -6,24 +6,12 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:16:46 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/29 13:23:16 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/30 14:30:59 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-
-#ifndef DEFINE_DEBUG_ONCE
-#define DEFINE_DEBUG_ONCE
-
-#if DEBUG
-  #include <stdio.h>
-  #define debug(x, ...)      do{fprintf(stderr, "%s:%s(%u): " x "\n", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);}while(0)
-#else
-  #define debug(x, ...)      /* x */
-#endif
-
-#endif
 
 # include <unistd.h>
 # include <stdlib.h>

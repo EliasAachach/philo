@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 20:44:57 by elaachac          #+#    #+#             */
-/*   Updated: 2021/11/29 15:32:51 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/11/30 14:15:34 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	charon(t_data	*data)
 		if ((get_time() - last_eat) > data->die_time)
 		{
 			state_display(data->philo[i], DIE);
-			thanathos(data);
+			break ;
 		}
 		if (++i == data->nbr_philo)
 		{
@@ -71,8 +71,9 @@ void	charon(t_data	*data)
 			if (data->nbr_eat != -1 && check_eat(data) == true)
 			{
 				state_display(data->philo[i], ATE_ENOUGH);
-				thanathos(data);
+				break ;
 			}
 		}
 	}
+	thanathos(data);
 }
